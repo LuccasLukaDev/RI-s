@@ -112,7 +112,26 @@ const thor = {
     }
 }
 
-personagens = [capitaoAmerica, homemDeFerro, viuvaNegra, gaviaoArqueiro, homemAranha, thor]
+const thanos = {
+    nome: 'Thanos',
+    codinome: 'Thanos',
+    armaPrincipal: "Manopla do Infinito",
+    armaSecundaria: '',
+    velocidade: 100,
+    forca: 100,
+    resistencia: 100,
+    descricao() {
+        return `Nome: ${this.nome}
+        Codinome: ${this.codinome}
+        Arma Principal: ${this.armaPrincipal}
+        Arma Secundária: ${this.armaSecundaria || '—'}
+        Velocidade: ${this.velocidade}
+        Força: ${this.forca}
+        Resistência: ${this.resistencia}`;
+    }
+}
+
+personagens = [capitaoAmerica, homemDeFerro, viuvaNegra, gaviaoArqueiro, homemAranha, thor, thanos]
 
 function comparaHerois(lista){
     for (let i = 0 ;i < lista.length; i++) {
