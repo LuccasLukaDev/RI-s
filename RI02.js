@@ -1,77 +1,74 @@
-class Cliente {
-    constructor(nome, telefone, email, endereco) {
+function Cliente (nome, telefone, email, endereco) {
         this.nome = nome
         this.email = email
         this.endereco = endereco
         this.telefone = telefone
+
+        this.getNomeMaiuscula = () => {return this.nome.toUpperCase()}
+        this.getNomeMinuscula = () =>  {return this.nome.toLowerCase()}
+        this.getNome = () => {return this.nome}
+        this.setNome = () => {this.nome = novoNome}
+
+        this.getEmailMaiuscula = () => {return this.email.toUpperCase()}
+        this.getEmailMinuscula = () => {return this.email.toLowerCase()}
+        this.getEmail = () => {return this.email}
+        this.setEmail = (novoEmail) =>  {this.email = novoEmail}
+
+        this.descricao = () => {
+            return `
+            ---------------------
+            Informações do Cliente:
+            ${this.nome}
+            ---------------------
+            Telefone: ${this.telefone.getNumero()}
+            DDD: ${this.telefone.getDDD()}
+            ---------------------
+            Endereço:
+            Rua: ${this.endereco.getRua()}
+            Número: ${this.endereco.getNumero()}
+            Cidade: ${this.endereco.getCidade()}
+            Estado: ${this.endereco.getSiglaEstado()}
+            ---------------------`   
+        }
     }
 
-    getNomeMaiuscula() {return this.nome.toUpperCase()}
-    getNomeMinuscula() {return this.nome.toLowerCase()}
-    getNome() {return this.nome}
-    setNome(novoNome) {this.nome = novoNome}
 
-    getEmailMaiuscula() {return this.email.toUpperCase()}
-    getEmailMinuscula() {return this.email.toLowerCase()}
-    getEmail() {return this.email}
-    setEmail(novoEmail) {this.email = novoEmail}
-
-    get descricao() {
-        return `
-        ---------------------
-        Informações do Cliente:
-        ${this.nome}
-        ---------------------
-        Telefone: ${this.telefone.getNumero()}
-        DDD: ${this.telefone.getDDD()}
-        ---------------------
-        Endereço:
-        Rua: ${this.endereco.getRua()}
-        Número: ${this.endereco.getNumero()}
-        Cidade: ${this.endereco.getCidade()}
-        Estado: ${this.endereco.getSiglaEstado()}
-        ---------------------`   
-    }
-}
-
-class Endereco {
-    constructor(siglaEstado,cidade, rua, numero) {
+function Endereco(siglaEstado,cidade, rua, numero) {
         this.siglaEstado = siglaEstado
         this.cidade = cidade
         this.rua = rua
         this.numero = numero
+
+        this.getSiglaEstadoMaiuscula = () => {return this.siglaEstado.toUpperCase()}
+        this.getSiglaEstadoMinuscula = () => {return this.siglaEstado.toLowerCase()}
+        this.getSiglaEstado = () => {return this.siglaEstado}
+        this.setSiglaEstado = (novaSigla) => {this.siglaEstado = novaSigla}
+        
+        this.getCidadeMaiuscula = () => {return this.cidade.toUpperCase()}
+        this.getCidadeMinuscula = () => {return this.cidade.toLowerCase()}
+        this.getCidade = () => {return this.cidade}
+        this.setCidade = (novaCidade) => {this.cidade = novaCidade}
+
+        this.getRuaMaiuscula = () => {return this.rua.toUpperCase()}
+        this.getRuaMinuscula = () => {return this.rua.toLowerCase()}
+        this.getRua = () => {return this.rua}
+        this.setRua = (novaRua) => {this.rua = novaRua}
+
+        this.getNumero = () => {return this.numero}
+        this.setNumero = (novoNumero) => {this.numero = novoNumero}
     }
-    getSiglaEstadoMaiuscula() {return this.siglaEstado.toUpperCase()}
-    getSiglaEstadoMinuscula() {return this.siglaEstado.toLowerCase()}
-    getSiglaEstado() {return this.siglaEstado}
-    setSiglaEstado(novaSigla) {this.siglaEstado = novaSigla}
-    
-    getCidadeMaiuscula() {return this.cidade.toUpperCase()}
-    getCidadeMinuscula() {return this.cidade.toLowerCase()}
-    getCidade() {return this.cidade}
-    setCidade(novaCidade) {this.cidade = novaCidade}
 
-    getRuaMaiuscula() {return this.rua.toUpperCase()}
-    getRuaMinuscula() {return this.rua.toLowerCase()}
-    getRua() {return this.rua}
-    setRua(novaRua) {this.rua = novaRua}
-
-    getNumero() {return this.numero}
-    setNumero(novoNumero) {this.numero = novoNumero}
-}
-
-class Telefone {
-    constructor(ddd, numeroTelefone) {
+function Telefone (ddd, numeroTelefone) {
         this.ddd = ddd
         this.numeroTelefone = numeroTelefone
+        this.getDDD = () => {return this.ddd}
+        this.setDDD = (novoDDD) => {this.ddd = novoDDD}
+
+        this.getNumero = () => {return this.numeroTelefone}
+        this.setNumero = (novoNumero) =>  {this.numeroTelefone = novoNumero}
     }
 
-    getDDD() {return this.ddd}
-    setDDD(novoDDD) {this.ddd = novoDDD}
 
-    getNumero() {return this.numeroTelefone}
-    setNumero(novoNumero) {this.numeroTelefone = novoNumero}
-}
 
 let telefone = new Telefone ('11', '999999999')
 let telefone1 = new Telefone ('12', '888888888')
@@ -89,7 +86,7 @@ function ordenaLista(listaClientes) {
 }
 
 ordenada = ordenaLista(lista)
-ordenada.forEach(cliente => {console.log(cliente.descricao)})
+ordenada.forEach(cliente => {console.log(cliente.descricao())})
 
 /*console.log(cliente.descricao)
 
