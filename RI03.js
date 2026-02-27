@@ -48,7 +48,6 @@ class Empresa {
         this.endereco = endereco
         this.#cnpj = cnpj
         this.clientes = new Set()
-        this.telefones = new Set()
     }
     getCnpj(){return this.#cnpj}
 
@@ -121,7 +120,8 @@ cliente4.addTelefone(telefone1Cliente4)
 cliente4.addTelefone(telefone2Cliente4)
 
 enderecoEmpresa = new Endereco('sp', 'são josé dos campos', 'av andrômeda', '987')
-empresa = new Empresa('abc ltda', 'mercado online', enderecoEmpresa)
+empresa = new Empresa('abc ltda', 'mercado online', '0987654321', enderecoEmpresa)
+
 empresa.addCliente(cliente0)
 empresa.addCliente(cliente1)
 empresa.addCliente(cliente2)
@@ -129,4 +129,5 @@ empresa.addCliente(cliente3)
 empresa.addCliente(cliente4)
 
 console.log(empresa.detalhe())
+console.log(empresa.getCnpj())
 
