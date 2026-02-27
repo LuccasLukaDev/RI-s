@@ -48,6 +48,7 @@ class Empresa {
         this.endereco = endereco
         this.#cnpj = cnpj
         this.clientes = new Set()
+        this.telefones = new Set()
     }
     getCnpj(){return this.#cnpj}
 
@@ -58,6 +59,7 @@ class Empresa {
     getNomeFantasiaMinusculo() { return this.nomeFantasia.toLowerCase() }
 
     addCliente(novoCliente) { this.clientes.add(novoCliente) }
+    addTelefone(novoTelefone) { this.telefones.add(novoTelefone) }
 
     detalhe() {
         let texto = ` 
@@ -122,12 +124,20 @@ cliente4.addTelefone(telefone2Cliente4)
 enderecoEmpresa = new Endereco('sp', 'são josé dos campos', 'av andrômeda', '987')
 empresa = new Empresa('abc ltda', 'mercado online', '0987654321', enderecoEmpresa)
 
+telefoneEmpresa0 = new Telefone('12', '1234567890')
+telefoneEmpresa1 = new Telefone('13', '5432109876')
+empresa.addTelefone(telefoneEmpresa0)
+empresa.addTelefone(telefoneEmpresa1)
+
 empresa.addCliente(cliente0)
 empresa.addCliente(cliente1)
 empresa.addCliente(cliente2)
 empresa.addCliente(cliente3)
 empresa.addCliente(cliente4)
 
-console.log(empresa.detalhe())
-console.log(empresa.getCnpj())
+// console.log(empresa.detalhe())
+// console.log(empresa.getCnpj())
+// empresa.telefones.forEach(telefone => {
+//     console.log(telefone)
+// });
 
