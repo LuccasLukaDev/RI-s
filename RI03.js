@@ -2,7 +2,7 @@ class Cliente {
     #cpf
     constructor(nome, endereco, cpf) {
         this.nome = nome
-        this.telefone = new Set()
+        this.telefones = new Set()
         this.endereco = endereco
         this.#cpf = cpf
     }
@@ -12,7 +12,13 @@ class Cliente {
     getNomeMaiusculo() { return this.nome.toUpperCase() }
     getNomeMinusculo() { return this.nome.toLowerCase() }
 
-    addTelefone(novoTelefone) { this.telefone.add(novoTelefone) }
+    getTelefones() {
+        this.telefones.forEach(telefone => {
+           return console.log(telefone)
+        })
+    }
+
+    addTelefone(novoTelefone) { this.telefones.add(novoTelefone) }
 }
 
 class Telefone {
@@ -58,6 +64,18 @@ class Empresa {
     getNomeFantasiaMaiusculo() { return this.nomeFantasia.toUpperCase() }
     getNomeFantasiaMinusculo() { return this.nomeFantasia.toLowerCase() }
 
+    getClientes() {
+        this.clientes.forEach(cliente => {
+            return console.log(`Nome: ${cliente.getNomeMaiusculo()} | CPF: ${cliente.getCpf()}`)
+        })
+    }
+
+    getTelefones() { 
+        this.telefones.forEach(telefone => {
+           return console.log(telefone)
+        })
+    }
+
     addCliente(novoCliente) { this.clientes.add(novoCliente) }
     addTelefone(novoTelefone) { this.telefones.add(novoTelefone) }
 
@@ -72,7 +90,7 @@ class Empresa {
         Nome: ${cliente.getNomeMaiusculo()}
         Estado: ${cliente.endereco.getEstadoMaiusculo()} | Cidade: ${cliente.endereco.getCidadeMaiusculo()} | Rua: ${cliente.endereco.getRuaMaiusculo()} | Número: ${cliente.endereco.numero}
         `
-        cliente.telefone.forEach(tel => {
+        cliente.telefones.forEach(tel => {
         texto += `Ddd: ${tel.ddd} Número de Telefone: ${tel.numeroTelefone}\n\t`
         })
         texto += `\n`
@@ -135,9 +153,13 @@ empresa.addCliente(cliente2)
 empresa.addCliente(cliente3)
 empresa.addCliente(cliente4)
 
-// console.log(empresa.detalhe())
+console.log(empresa.detalhe())
 // console.log(empresa.getCnpj())
 // empresa.telefones.forEach(telefone => {
 //     console.log(telefone)
 // });
+
+// empresa.getClientes()
+// empresa.getTelefones()
+// cliente0.getTelefones()
 
