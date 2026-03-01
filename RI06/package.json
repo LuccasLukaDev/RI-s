@@ -1,0 +1,20 @@
+{
+  "name": "ri06",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/RI06.js",
+  "scripts": {
+    "dev": "node --loader ts-node/esm src/RI06.js",
+    "build": "tsc",
+    "start": "node dist/RI06.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
