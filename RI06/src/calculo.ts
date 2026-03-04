@@ -1,5 +1,5 @@
 export default abstract class Calculo{
-    public abstract calcular(number1: number, number2: number) : number
+    public abstract calcular(number1: number, number2: number, number3?: number) : number
 }
 
 /*
@@ -15,5 +15,5 @@ ou o TypeScript vai dar erro de compilação
 
 public - todos os modulos do projeto podem acessar
 private - apenas a propria classe pode acessar
-protected - Apenas a classe e suas filhas podem acessar
+protected - Apenas a classe e suas filhas diretas podem acessar
 */

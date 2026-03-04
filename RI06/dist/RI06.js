@@ -4,6 +4,7 @@ import Soma from "./soma.js";
 import Subtracao from "./subtracao.js";
 import Multiplicacao from "./multiplicacao.js";
 import Potencia from "./potencia.js";
+import Radiciacao from "./radiciacao.js";
 let iniciar = () => {
     let leitor = readline.createInterface({
         input: process.stdin,
@@ -41,11 +42,15 @@ let iniciar = () => {
                     break;
                 case 'dividir':
                     let divisao = new Divisao();
-                    console.log(`Resultado ${divisao.calcular(numero1, numero2)}`);
+                    console.log(`Resultado: ${divisao.calcular(numero1, numero2)}`);
                     break;
                 case 'potencializar':
                     let potencia = new Potencia();
-                    console.log(`Resultado ${potencia.calcular(numero1, numero2)}`);
+                    console.log(`Resultado: ${potencia.calcular(numero1, numero2)}`);
+                    break;
+                case 'radicar':
+                    let radiciacao = new Radiciacao();
+                    console.log(`Resultado: ${radiciacao.calcular(numero1, numero2)}`);
                     break;
                 case 'sair':
                     console.clear();

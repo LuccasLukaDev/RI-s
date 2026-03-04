@@ -13,5 +13,5 @@ ou o TypeScript vai dar erro de compilação
 
 public - todos os modulos do projeto podem acessar
 private - apenas a propria classe pode acessar
-protected - Apenas a classe e suas filhas podem acessar
+protected - Apenas a classe e suas filhas diretas podem acessar
 */ 
