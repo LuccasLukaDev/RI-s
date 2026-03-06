@@ -5,6 +5,7 @@ import Subtracao from "./subtracao.js"
 import Multiplicacao from "./multiplicacao.js"
 import Potencia from "./potencia.js"
 import Radiciacao from "./radiciacao.js"
+import Bhaskara from "./bhaskara.js"
 
 let iniciar = () => {
     let leitor = readline.createInterface({
@@ -13,7 +14,7 @@ let iniciar = () => {
     })
 
     function perguntar(){
-        leitor.question(`Quais são os seus numeros e a operação desejada ?\n`,(valor) =>{
+        leitor.question(`Quais são os seus dois numeros e a operação desejada ?\n`,(valor) =>{
             console.clear()
             let instrucoes = valor.trim().split(' ')
 
@@ -32,7 +33,7 @@ let iniciar = () => {
                 return perguntar()
             }
 
-            console.log(`Estas foram suas instruções: ${instrucoes}`)
+            console.log(`Estas foram suas instruções: ${instrucoes}\n`)
 
             switch(operacao.toLowerCase()){
                 case 'somar':
@@ -65,15 +66,28 @@ let iniciar = () => {
                     console.log(`Resultado: ${radiciacao.calcular(numero1, numero2)}`)
                     break
 
-                case 'baskhara':
-                    let bhaskara = new Bhaskara()
-                    console.log(`Resultado: ${bhaskara.calcular(numero1, numero2, numero3)}`)
+                case 'bhaskara':
+                    function recallBhaskara() {
+                        leitor.question(`Digite um terceiro número: `, (valor3) =>{
+                            let bhaskara = new Bhaskara()
+                            let numero3 = Number(valor3)
 
-                case 'sair':
-                    console.clear()
-                    console.log('Saindo...')
-                    break
-                
+                            if (isNaN(numero3)){
+                                console.clear()
+                                console.log(`Não é um número ! `)
+                                return recallBhaskara()
+                            }
+
+                            let result = bhaskara.calcular(numero1, numero2, numero3)
+                            console.clear()
+                            console.log(`Resultado =  Delta: ${result[0]} | X1: ${result[1]} | X2: ${result[2]}`)
+
+                            perguntar()
+                        })
+                    }
+                    recallBhaskara()
+                    return
+
                 default:
                     console.log('Operação Invalida !')
             }

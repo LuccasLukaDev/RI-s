@@ -1,5 +1,5 @@
 export default abstract class Calculo{
-    public abstract calcular(number1: number, number2: number, number3?: number) : number
+    public abstract calcular(number1: number, number2: number, number3?: number) : number | number[]
 }
 
 /*
