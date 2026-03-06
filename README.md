@@ -41,5 +41,3 @@ O objetivo deste repositório é **documentar a evolução nos estudos de progra
 - TypeScript
 - Node.js
 - Git e GitHub
-
-Exemplo de organização:
