@@ -14,7 +14,7 @@ let iniciar = () => {
     })
 
     function perguntar(){
-        leitor.question(`Quais são os seus dois numeros e a operação desejada ?\n`,(valor) =>{
+        leitor.question(`Digite dois numeros e a operação desejada ou 'Sair' para sair:\n`,(valor) =>{
             console.clear()
             let instrucoes = valor.trim().split(' ')
 
